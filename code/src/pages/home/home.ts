@@ -10,11 +10,11 @@ import { DetallePage } from '../detalle/detalle';
 export class HomePage {
   notes = []
   constructor(public navCtrl: NavController, public NotesService: NotesService) {
-    this.notes=NotesService.GetNotes();
+    this.notes = NotesService.GetNotes();
   }
 
-  public irdetalle():void{
-    this.navCtrl.push(DetallePage);
+  public irdetalle(id) {
+    this.navCtrl.push(DetallePage, { id });
   }
 
 }

@@ -8,12 +8,12 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let note of notes" (click)="irdetalle()" icon-end>
+    <button ion-item *ngFor="let note of notes" (click)="irdetalle(note.id)">
       {{ note.title }}
     </button>
   </ion-list>
   <ion-fab top right edge>
-    <button ion-fab  mini color="secondary" >
+    <button ion-fab  mini color="secondary" (click)="irdetalle(0)">
       <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>

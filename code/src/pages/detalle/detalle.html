@@ -18,19 +18,21 @@
 
     <ion-item>
       <ion-label floating>Titulo</ion-label>
-      <ion-input type="text" value=""></ion-input>
+      <ion-input type="text" [(ngModel)]="note.title"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label floating>Detalles</ion-label>
-      <ion-input type="text" value=""></ion-input>
+      <ion-input type="textarea" [(ngModel)]="note.description"></ion-input>
     </ion-item>
 
   </ion-list>
 
-  <ion-row justify-content-center>
-      <button ion-button color="primary" icon-start round><ion-icon name="checkmark"></ion-icon>&nbsp; Guardar</button>
-      <button ion-button color="danger" round><ion-icon name="trash"></ion-icon>&nbsp; Eliminar</button>
+  <ion-row *ngIf="id!=0" justify-content-center>
+      <button ion-button color="secondary" icon-start round (click)="EditNote()"><ion-icon name="checkmark"></ion-icon> Guardar</button>
+      <button ion-button color="danger" round (click)="DeleteNote()"><ion-icon name="trash"></ion-icon>&nbsp; Eliminar</button>
   </ion-row>
-  
+  <ion-row *ngIf="id==0" justify-content-center>
+    <button ion-button color="secondary" icon-start round (click)="AddNote()"><ion-icon name="add"></ion-icon> Agregar</button>
+</ion-row>
 </ion-content>
